@@ -2,12 +2,13 @@ public class Bear {
     private String name;
     private int age;
     private double weight;
-    private boolean asleep;
+    private char gender;
 
-    public Bear(String name, int age, double weight){
+    public Bear(String name, int age, double weight, char gender){
         this.name = name;
         this.age = age;
         this.weight = weight;
+        this.gender = gender;
     }
 
     public String getName(){
@@ -33,4 +34,13 @@ public class Bear {
     public void setWeight(double weight){
         this.weight = weight;
     }
+
+    public boolean isAsleep(){
+        return (this.weight >= 700.0);
+    }
+
+    public char getGender(){
+        return this.gender;
+    }
+
 }

@@ -1,25 +1,50 @@
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
 public class BearTest {
+    private Bear myBear;
+    private Bear myBear2;
+
+    @Before
+    public void  before(){
+        myBear = new Bear ("Paddington", 23, 650.0, 'm');
+        myBear2 = new Bear ("Heavy Bear", 25, 701.0, 'f');
+    }
+
     @Test
     public void hasName(){
-        Bear myBear = new Bear("Yogi", 10, 650.0);
-        assertEquals("Yogi", myBear.getName());
+        assertEquals("Paddington", myBear.getName());
     }
 
     @Test
     public void hasAge(){
-        Bear myBear = new Bear("Yogi", 10, 650.0);
-        myBear.setAge(23);
         assertEquals(23, myBear.getAge());
     }
 
     @Test
     public void hasWeight(){
-        Bear myBear = new Bear("Yogi", 10, 650.0);
-        myBear.setWeight(720.0);
-        assertEquals(720.0, myBear.getWeight(), 0.01);
+        assertEquals(650.0, myBear.getWeight(), 0.01);
+    }
+
+    @Test
+    public void isBearAbleToSleep(){
+        assertEquals(false, myBear.isAsleep());
+    }
+
+    @Test
+    public void isBearAbleToNotSleep(){
+        assertEquals(true, myBear2.isAsleep());
+    }
+
+    @Test
+    public void isBearMale(){
+        assertEquals('m', myBear.getGender());
+    }
+
+    @Test
+    public void isBearFemale(){
+        assertEquals('f', myBear2.getGender());
     }
 }
